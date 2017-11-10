@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd"> <!-- 구글에 mybatis dtd(document type definition)라고 검색해서 가져온 것 -->
+  
+  <configuration>
+  
+  <!-- 컬럼이름같은거 정의 -->
+  	<properties>
+  		<property name="product" value="auction_product"/> <!-- value는 값! 테이블실제이름 -->
+  		<property name="code" value="code"/>
+  		<property name="category" value="category"/>
+  		<property name="name" value="name"/>
+  		<!-- <property name="price" value="price"/> -->
+  		<property name="closed_time" value="closed_time"/>
+  		<property name="quantity" value="quantity"/>
+  		<property name="seller" value="seller"/>
+  		<property name="buyer" value="buyer"/>
+  		<property name="immediate_price" value="immediate_price"/>
+  		<property name="detail" value="detail"/>
+  		<property name="bidders" value="bidders"/>
+  		<property name="update_time" value="update_time"/>
+  		<property name="start_price" value="start_price"/>
+  		<property name="contract_price" value="contract_price"/>
+  		<property name="img" value="img"/>
+  		<property name="total_quantity" value="total_quantity"/>
+  		<property name="process" value="process"/>
+  		<property name="delivery" value="delivery"/>
+
+
+
+  	<!-- bidding Table에 관한 property정의 -->
+  		<property name="bidding" value="auction_bidding"/>
+  		<property name="product_code" value="product_code"/>
+  		<property name="user_id" value="user_id"/>
+		<property name="regdate" value="regdate"/>
+		<property name="price" value="price"/> 
+		<property name="max" value="max"/> <!-- Max여부 Y or N --> <!-- tranmission으로 처리해야할 여러 쿼리문 -->
+		
+		
+		
+		<!-- user -->
+		<property name="table_users" value="auction_user"/>
+		<property name="col_id" value="id"/>
+		<property name="col_pw" value="pw"/>
+		<property name="col_name" value="name"/>
+		<property name="col_phone" value="phone"/>
+		<property name="col_email" value="email"/>
+		<property name="col_address" value="address"/>
+		<property name="col_denial" value="denial"/>
+		<property name="col_grade" value="grade"/>
+		<property name="col_status" value="status"/>
+		
+		
+		
+		
+		<!-- review -->
+		<property name="review" value="auction_review"/>
+		<property name="rno" value="rno"/>
+		<property name="seller" value="seller"/>
+		<property name="buyer" value="buyer"/>
+		<property name="product_code" value="product_code"/>
+		<property name="grade" value="grade"/>
+		<property name="detail" value="detail"/>
+		<property name="regdate" value="regdate"/>
+		
+		
+		
+		<!-- image -->
+	
+		<property name="product_image" value="auction_product_image"/>
+		<property name="image_key" value="image_key"/>
+		<property name="image_name" value="image_name"/>
+		
+		<property name="user_image" value="auction_user_image"/>
+		<property name="user_id" value="user_id"/>
+		<property name="image_name" value="image_name"/>
+		
+  	</properties>
+  	
+  	<!-- type에 대한 별명을 주겠다(이따 board-mapper.xml에서 resultType줄때) -->
+  	<typeAliases>
+  		<package name="edu.spring.vo"/>
+  	</typeAliases>
+  
+  </configuration>

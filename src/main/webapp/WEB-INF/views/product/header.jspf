@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt"
+   uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<link rel="stylesheet" type="text/css" href="../resources/css/headerstyle1.css"/>
+
+
+<header id="top">
+<div id="hdWrap">
+   <div id="header">
+        <div class="util">
+            <div class="wrapper">
+                <ul>
+               <li class="first"><a href="/"><img src="../resources/images/icon_home.png" style="margin-top: 9px;"></a></li>
+               <li><a href="../user/login">log-in</a></li>
+               <li class="join"><a href="../user/registerUser">join us</a></li>
+               <li><a href="../user/cart">cart</a></li>
+                    <li><a href="../user/cart">order</a></li>
+                    <li><a href="../user/myInfo">my page</a></li>
+                    
+                    
+                    <li class="search">               
+                        <div class="sch">
+                            <form action="/shop/shopbrand.html" method="post" name="search"><fieldset>
+                                    <legend>상품 검색 폼</legend>
+                                    <a href="javascript:search_submit();"><input type="image" src="../resources/images/btn_search_white.gif" class="btn-sch" alt="상품 검색" title="상품 검색" style="width:13px;"></a>
+                                    <input name="search" onkeydown="CheckKey_search();" value="" class="MS_search_word keyword">
+                                </fieldset>
+                             </form> 
+                        </div>
+               </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="logo">
+            <a href="/"><img src="../resources/images/title.jpg"></a>
+        </div>
+        
+   </div>
+</div>
+</header>

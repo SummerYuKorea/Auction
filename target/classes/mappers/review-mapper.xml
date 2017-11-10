@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.spring.ReviewMapper">
+
+	<!-- 판매자에 관한 리뷰 작성 -->
+	<insert id="insert">insert into ${review}(${seller}, ${buyer}, ${product_code}, ${grade}, ${detail}) 
+	values (#{seller}, #{buyer}, #{product_code}, #{grade}, #{detail})</insert>
+	
+	<!-- 리뷰 수정 -->
+	<update id="update">update ${review} set ${grade}=#{grade}, ${detail}=#{detail}, ${regdate}=sysdate where ${rno}=#{rno}</update>
+	
+	<!-- 판매자의 리뷰정보 불러오기 -->
+	<select id="select_by_seller" resultType="ReviewVO">
+	select * from ${review}  where ${seller}=#{seller}</select>
+	
+	<!-- 구매자의 리뷰작성리스트 불러오기 -->
+		<select id="select_by_buyer" resultType="ReviewVO">
+	select * from ${review}  where ${buyer}=#{buyer}</select>
+	
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="delete">delete from ${review} where ${rno}=#{rno}</delete>
+</mapper>

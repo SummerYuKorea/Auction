@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.spring.UserMapper">
+	
+	<!-- 전체 회원검색 -->
+	<select id="select_all" resultType="UserVO">
+		select * from ${table_users} 
+	</select>
+	
+	<!-- 아이디로 회원정보 검색 -->
+	<select id="select_by_id" resultType="UserVO">
+		select * from ${table_users}
+		where ${col_id} = #{id}
+	</select>
+	
+	<!-- 회원가입시 아이디 ,비밀번호, 이름, 전화번호, 이메일, 주소를  제출( 거부 , 만족도, 상태는 기본값으로 들어감 -> (0,0,'Y')) -->
+	<insert id="insert">
+		insert into ${table_users}(${col_id},${col_pw},${col_name},${col_phone},${col_email},${col_address})
+		values(#{id},#{pw},#{name},#{phone},#{email},#{address})
+	</insert>
+	
+	<!-- 아이디로  비밀번호, 전화번호, 이메일, 주소를 업데이트함 -->
+	<update id="update">
+		update ${table_users}
+		set ${col_pw} = #{pw}, ${col_phone} = #{phone}, ${col_email} = #{email}, ${col_address} = #{address}
+		where ${col_id} = #{id}
+	</update>
+	
+	<!-- 아이디로 검색해서 회원정보 삭제 -->
+	<delete id="delete">
+		delete from ${table_users}
+	 	where ${col_id} = #{id}
+	</delete>
+	
+	<!-- 로그인시 아이디 비번이 맞는지 체크 -->
+	<select id="login" resultType="UserVO">
+		select * from ${table_users}
+		where ${col_id} = #{id} and
+		${col_pw} = #{pw}
+	</select>
+		 
+	 
+</mapper> 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="edu.spring.controller" />
+	<context:component-scan base-package="edu.spring.auc" />
+	
+	
+	<!-- =======================for 파일업로드======================= -->
+		<!--  문자열 리소스를 bean으로 추가  -->
+	<beans:bean id="uploadPath" class="java.lang.String"> <!-- String클래스(문자열) 생성하겠단 얘기 -->
+		<beans:constructor-arg value="C:\Users\Summer\java_workspace\web_workspace\Auction\src\main\webapp\resources\AuctionUploadFile/Product"/> <!-- 생성자에 argument넣겠다~그말 -->
+		<!-- String uploadPath=new String("C:\\Study\\FileUploadTest");
+		랑 똑같!-->
+	</beans:bean>
+	<!--  스터디 밑에 FileUploadTest라는 폴더 만들어!너가 -->
+	
+	<beans:bean id="uploadPath_profile" class="java.lang.String"> <!-- String클래스(문자열) 생성하겠단 얘기 -->
+		<beans:constructor-arg value="C:\Users\Summer\java_workspace\web_workspace\Auction\src\main\webapp\resources\AuctionUploadFile/User"/> <!-- 생성자에 argument넣겠다~그말 -->
+	</beans:bean>
+	
+		<!-- MultipartResolver:
+		form 양식에서 multipart/form-data 타입을 처리하기 위한 클래스 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> <!-- so long -->
+		<!--  파일 업로드 최대 용량 설정 : 1024 x 1024 x 10 = 10MB -->
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+	<!-- ===================================================================== -->
+	
+	<!--  Interceptor 클래스를 bean으로 관리 -->	
+	<beans:bean id="loginInterceptor" class="edu.spring.interceptor.LoginInterceptor"/>
+	<beans:bean id="authInterceptor" class="edu.spring.interceptor.AuthInterceptor"/>
+	
+	<!-- 인터셉터가 가로챌 URL 매핑 설정 -->
+	<!-- 어떤 URL을 가로챌건디 설정 해줘야지 // 인터셉터가 가로챌 URL 매핑 설정-->
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/login-post"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/user/cart"/>
+			<mapping path="/user/buyList"/>
+			<mapping path="/user/biddingList"/>
+			<mapping path="/product/biddingList"/>
+			<mapping path="/user/myInfo"/>
+			<mapping path="/user/registerReview"/>
+			<mapping path="/user/productList"/>
+			<mapping path="/product/registerProduct"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	
+	
+	
+</beans:beans>

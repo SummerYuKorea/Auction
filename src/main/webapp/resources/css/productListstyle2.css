@@ -1,0 +1,151 @@
+@CHARSET "UTF-8";
+
+.prdul {
+   list-style:none;
+   }
+  
+
+   .prd {
+        float : left;
+      padding-left:20px;
+      margin:5px;
+      width:300px; 
+      list-style:none;
+     font-size: 13px;
+     color: #565656;
+     text-decoration:none;
+     padding-top: 5px;
+     line-height: 20px;
+     position: relative;
+     
+    }  
+    
+
+
+   .item_sell{
+      padding-top:5px;
+      font-size: 20px;
+      font-weight:bold;
+   }
+    .item_tit{
+       
+       height: 32px;
+       margin-top: 13px;
+       font-family: dotum;
+       font-size: 12px;
+       color: #333333;
+       line-height: 17px;
+   }  
+   
+ .productlist{
+    background:white;
+      width:1100px;
+      padding:30px;
+      margin:auto;
+      float:left;
+ }
+
+.wrapper {
+   position: relative;
+   overflow: auto;
+}
+
+.remain_time{
+   display: inline-block;
+    height: 14px;
+    padding-bottom: 5px;
+    padding-left: 17px;
+    background: url(//pics.auction.co.kr/listing/used/2014/txt2_watch.gif) 0 3px no-repeat;
+    font-family: Tahoma;
+    font-size: 13px;
+    color: #666666;
+    vertical-align: top;
+   
+}
+
+
+#top {
+   
+   color: white;
+   padding: 15px;
+}
+
+#menu_bar {
+   width: 200px;
+   float: left;
+}
+
+#main {
+   padding: 10px;
+   /*
+   margin-left: 210px;
+    margin-right: 210px;
+    */
+    margin: 0px 100px; /* top & bottom: 0px, right & left: 210px */
+}
+
+#sidebar {
+   background-color: #ccffff;
+   padding: 10px;
+   width: 180px;
+   position: absolute;
+   top: 0px;
+   right: 0px;
+}
+
+.item_img {
+   border: 5px solid white;
+}
+
+.icon_auction{
+    position: absolute;
+    top: 6px;
+    right: -4px;
+   
+}
+
+
+#bottom {
+   background-color: #f1f1f1;
+   text-align: center;
+   padding: 10px;
+   font-size: 80%;
+}
+
+#menu_list {
+   margin: 0px;
+   padding: 0px;
+}
+
+.menu_item {
+   list-style-type: none;
+   background-color: #f1f1f1;
+   border: 1px solid #d4d4d4;
+   padding: 4px;
+   text-align: center;
+   margin-top: 5px;
+}
+
+.menu_item:hover {
+   background-color: #ffccff;
+}
+
+.mylink {
+   text-decoration: none;
+   color: #000000;
+}
+
+.mylink:hover {
+   color: #cc3300;
+}
+
+
+
+
+
+
+
+
+
+
+

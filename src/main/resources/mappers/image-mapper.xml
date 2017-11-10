@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="edu.spring.ImageMapper">
+  	
+  	<insert id="insert_product_image">
+  		insert into ${product_image}(${image_key}, ${image_name}) values(#{image_key}, #{image_name})
+  	</insert>
+  	
+  	<select id="select_product_image" resultType="String"><!-- 사진 파일 이름 리스트 넘어옴 -->
+  		select ${image_name} from ${product_image} where ${image_key} like #{image_key}  <!-- key로 product_cod+"%" 넘기면 됨~ -->
+  	</select>
+  	
+  	
+  	
+  	<insert id="insert_user_image">
+  		insert into ${user_image}(${user_id}, ${image_name}) values(#{user_id}, #{image_name})
+  	</insert>
+  	
+  	<select id="select_user_image" resultType="String"><!-- 사진 파일 이름 리스트 넘어옴 -->
+  		select * from ${user_image} where ${user_id}=#{user_id}
+  	</select>
+  
+  
+  </mapper>
